@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CommunityConnect - Local Resource Sharing</title>
+
+    <!-- Connect CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- AUTHENTICATION TEMPLATE -->
+    <section id="authPage" class="auth-page">
+
+        <div class="auth-container">
+
+            <div class="auth-brand">
+                <div class="auth-logo">🌍</div>
+                <h1>CommunityConnect</h1>
+                <p>Share • Connect • Support</p>
+
+                <div class="auth-intro">
+                    <h2>Connect your community.</h2>
+                    <p>
+                        Sign in or create an account to discover,
+                        share and coordinate local resources.
+                    </p>
+                </div>
+            </div>
+
+            <div class="auth-card">
+
+                <div class="auth-tabs">
+                    <button type="button" class="auth-tab active" data-auth-tab="login">
+                        Sign In
+                    </button>
+
+                    <button type="button" class="auth-tab" data-auth-tab="signup">
+                        Sign Up
+                    </button>
+                </div>
+
+                <!-- SIGN IN TEMPLATE -->
+                <form id="loginForm" class="auth-form">
+
+                    <div class="auth-heading">
+                        <h2>Welcome Back</h2>
+                        <p>Sign in to access your community.</p>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="loginEmail">Email Address</label>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="loginPassword">Password</label>
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                        >
+                    </div>
+
+                    <div class="auth-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+
+                        <button type="button" class="forgot-password">
+                            Forgot password?
+                        </button>
+                    </div>
+
+                    <button type="submit" class="auth-submit-btn">
+                        Sign In
+                    </button>
+
+                    <p id="loginStatus" class="auth-status" aria-live="polite"></p>
+
+                    <p class="auth-switch">
+                        Don't have an account?
+                        <button type="button" data-switch-auth="signup">
+                            Create one
+                        </button>
+                    </p>
+
+                </form>
+
+                <!-- SIGN UP TEMPLATE -->
+                <form id="signupForm" class="auth-form hidden-auth-form">
+
+                    <div class="auth-heading">
+                        <h2>Create Account</h2>
+                        <p>Join your local community today.</p>
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="signupName">Full Name</label>
+                        <input
+                            type="text"
+                            id="signupName"
+                            placeholder="Enter your full name"
+                            autocomplete="name"
+                        >
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="signupEmail">Email Address</label>
+                        <input
+                            type="email"
+                            id="signupEmail"
+                            placeholder="Enter your email"
+                            autocomplete="email"
+                        >
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="signupPassword">Password</label>
+                        <input
+                            type="password"
+                            id="signupPassword"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                        >
+                    </div>
+
+                    <div class="auth-form-group">
+                        <label for="signupConfirmPassword">Confirm Password</label>
+                        <input
+                            type="password"
+                            id="signupConfirmPassword"
+                            placeholder="Confirm your password"
+                            autocomplete="new-password"
+                        >
+                    </div>
+
+                    <label class="terms-check">
+                        <input type="checkbox" id="termsCheck">
+                        <span>
+                            I agree to the CommunityConnect terms.
+                        </span>
+                    </label>
+
+                    <button type="submit" class="auth-submit-btn">
+                        Create Account
+                    </button>
+
+                    <p id="signupStatus" class="auth-status" aria-live="polite"></p>
+
+                    <p class="auth-switch">
+                        Already have an account?
+                        <button type="button" data-switch-auth="login">
+                            Sign in
+                        </button>
+                    </p>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <div id="communityApp">
+
+    <!-- HEADER -->
+    <header>
+
+        <div class="logo">
+            <h1>🌍 CommunityConnect</h1>
+            <p>Share • Connect • Support</p>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#resources">Resources</a>
+            <a href="#share">Share Resource</a>
+            <a href="#announcements">Announcements</a>
+            <a href="#contact">Contact</a>
+            <button type="button" id="logoutBtn" class="logout-btn">Log Out</button>
+        </nav>
+
+    </header>
+
+
+    <!-- HOME -->
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="welcome">WELCOME TO OUR COMMUNITY</p>
+
+            <h2>
+                Share Resources.<br>
+                Build a Stronger Community.
+            </h2>
+
+            <p>
+                Find, share and coordinate useful resources
+                with people in your local community.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#resources" class="primary-btn">
+                    🔍 Find Resources
+                </a>
+
+                <a href="#share" class="secondary-btn">
+                    ➕ Share Resource
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+
+        <div class="section-title">
+
+            <span>ABOUT US</span>
+
+            <h2>Connecting People & Resources</h2>
+
+            <p>
+                CommunityConnect helps people discover and share
+                resources within their local community.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature-card">
+                <div class="icon">🔍</div>
+
+                <h3>Find Resources</h3>
+
+                <p>
+                    Easily find books, tools, electronics,
+                    transportation and other useful resources.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🤝</div>
+
+                <h3>Share Resources</h3>
+
+                <p>
+                    Share resources you have with people
+                    who need them in your community.
+                </p>
+            </div>
+
+
+            <div class="feature-card">
+                <div class="icon">🌱</div>
+
+                <h3>Reduce Waste</h3>
+
+                <p>
+                    Make better use of existing resources
+                    and reduce unnecessary waste.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESOURCES -->
+    <section id="resources" class="resources-section">
+
+        <div class="section-title">
+
+            <span>COMMUNITY RESOURCES</span>
+
+            <h2>Available Resources</h2>
+
+            <p>
+                Discover resources shared by members of our community.
+            </p>
+
+        </div>
+
+
+        <div class="resource-grid" id="resourceGrid">
+
+
+            <!-- RESOURCE 1 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon book">
+                    📚
+                </div>
+
+                <div class="resource-content">
+
+                    <span class="category">
+                        EDUCATION
+                    </span>
+
+                    <h3>Engineering Books</h3>
+
+                    <p>
+                        Textbooks and reference materials
+                        available for students.
+                    </p>
+
+                    <div class="resource-info">
+                        📍 Community Library
+                    </div>
+
+                    <span class="available">
+                        ● Available
+                    </span>
+
+                    <button>
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOURCE 2 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon tools">
+                    🔧
+                </div>
+
+                <div class="resource-content">
+
+                    <span class="category">
+                        TOOLS
+                    </span>
+
+                    <h3>Power Tools</h3>
+
+                    <p>
+                        Tools available for small repair
+                        and maintenance activities.
+                    </p>
+
+                    <div class="resource-info">
+                        📍 Block A
+                    </div>
+
+                    <span class="available">
+                        ● Available
+                    </span>
+
+                    <button>
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOURCE 3 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon laptop">
+                    💻
+                </div>
+
+                <div class="resource-content">
+
+                    <span class="category">
+                        ELECTRONICS
+                    </span>
+
+                    <h3>Laptop</h3>
+
+                    <p>
+                        Laptop available for students
+                        for educational purposes.
+                    </p>
+
+                    <div class="resource-info">
+                        📍 Block B
+                    </div>
+
+                    <span class="available">
+                        ● Available
+                    </span>
+
+                    <button>
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOURCE 4 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon bicycle">
+                    🚲
+                </div>
+
+                <div class="resource-content">
+
+                    <span class="category">
+                        TRANSPORT
+                    </span>
+
+                    <h3>Bicycle</h3>
+
+                    <p>
+                        Bicycle available for short-term
+                        community use.
+                    </p>
+
+                    <div class="resource-info">
+                        📍 Main Gate
+                    </div>
+
+                    <span class="available">
+                        ● Available
+                    </span>
+
+                    <button>
+                        View Details
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SHARE RESOURCE -->
+    <section id="share" class="section share-section">
+
+        <div class="section-title">
+
+            <span>SHARE WITH COMMUNITY</span>
+
+            <h2>Have Something to Share?</h2>
+
+            <p>
+                Add your resource and help someone in your community.
+            </p>
+
+        </div>
+
+
+        <form class="resource-form">
+
+            <h3>➕ Add a Resource</h3>
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="name">
+                        Your Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your name"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="resource">
+                        Resource Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="resource"
+                        placeholder="Enter resource name"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Category
+                    </label>
+
+                    <select id="category">
+
+                        <option>
+                            Select Category
+                        </option>
+
+                        <option>
+                            Education
+                        </option>
+
+                        <option>
+                            Electronics
+                        </option>
+
+                        <option>
+                            Tools
+                        </option>
+
+                        <option>
+                            Transportation
+                        </option>
+
+                        <option>
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="location">
+                        Location
+                    </label>
+
+                    <input
+                        type="text"
+                        id="location"
+                        placeholder="Enter location"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="description">
+                    Description
+                </label>
+
+                <textarea
+                    id="description"
+                    rows="5"
+                    placeholder="Describe your resource..."
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Share Resource 🚀
+            </button>
+
+            <p id="resourceStatus" class="form-status" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- ANNOUNCEMENTS -->
+    <section id="announcements" class="announcement-section">
+
+        <div class="section-title">
+
+            <span>COMMUNITY NEWS</span>
+
+            <h2>Latest Announcements</h2>
+
+        </div>
+
+
+        <div class="announcement-grid">
+
+
+            <div class="announcement-card">
+
+                <div class="announcement-icon">
+                    🧹
+                </div>
+
+                <div>
+
+                    <h3>Community Clean-Up Drive</h3>
+
+                    <p>
+                        Join us this Sunday to keep
+                        our community clean.
+                    </p>
+
+                    <strong>
+                        📅 Sunday
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="announcement-card">
+
+                <div class="announcement-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <h3>Book Donation Drive</h3>
+
+                    <p>
+                        Donate your old books and
+                        help students.
+                    </p>
+
+                    <strong>
+                        📍 Community Hall
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="announcement-card">
+
+                <div class="announcement-icon">
+                    🤝
+                </div>
+
+                <div>
+
+                    <h3>Volunteer Meeting</h3>
+
+                    <p>
+                        Join us to discuss upcoming
+                        community activities.
+                    </p>
+
+                    <strong>
+                        🕙 10:00 AM
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-section">
+
+        <div class="section-title">
+
+            <span>SIMPLE PROCESS</span>
+
+            <h2>How CommunityConnect Works</h2>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>Identify</h3>
+
+                <p>
+                    Find useful resources available
+                    in your community.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>Share</h3>
+
+                <p>
+                    Add resources that you are
+                    willing to share.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>Connect</h3>
+
+                <p>
+                    Connect with people who
+                    need those resources.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>Coordinate</h3>
+
+                <p>
+                    Coordinate resource sharing
+                    within the community.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section">
+
+        <div class="section-title">
+
+            <span>GET IN TOUCH</span>
+
+            <h2>Contact Us</h2>
+
+            <p>
+                Have questions or suggestions?
+                We'd love to hear from you.
+            </p>
+
+        </div>
+
+
+        <form class="contact-form">
+
+            <div class="form-group">
+
+                <label for="contact-name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="contact-name"
+                    placeholder="Enter your name"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="message">
+                    Message
+                </label>
+
+                <textarea
+                    id="message"
+                    rows="5"
+                    placeholder="Write your message..."
+                ></textarea>
+
+            </div>
+
+
+            <button type="submit" class="submit-btn">
+                Send Message ✈️
+            </button>
+
+            <p id="contactStatus" class="form-status" aria-live="polite"></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <h2>🌍 CommunityConnect</h2>
+
+        <p>
+            Building stronger communities through
+            sharing and cooperation.
+        </p>
+
+        <div class="footer-links">
+
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#resources">Resources</a>
+            <a href="#contact">Contact</a>
+
+        </div>
+
+        <hr>
+
+        <p>
+            © 2026 CommunityConnect | Semester Project
+        </p>
+
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
